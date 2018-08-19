@@ -1,14 +1,15 @@
-Feature: calculate car parking
+#language: th
+ความสามารถ: calculate car parking
 
-    Scenario Outline: car parking system
+    โครงสร้างของเหตุการณ์: car parking system
 
-        Given I receive parking ticket at <entryTime>
-        When  I return parking ticket at <exitTime>
-        Then  I should got actual time <actualTime>
-        And   parking rate <rate>
-        And   parking amount <amount>
+        กำหนดให้ I receive parking ticket at <entryTime>
+        เมื่อ  I return parking ticket at <exitTime>
+        ดังนั้น  I should got actual time <actualTime>
+        และ   parking rate <rate>
+        และ   parking amount <amount>
 
-        Examples: 
+        ชุดของตัวอย่าง: 
         |entryTime|exitTime|actualTime|rate|amount|
         |"9:00"   |"9:59"  |"0.59"    | 1  | 25   |
         |"9:00"   |"10:59" |"1.59"    | 2  | 50   |
