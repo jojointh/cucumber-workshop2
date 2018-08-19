@@ -28,7 +28,7 @@ gem install cucumber
 gem install rspec
 ```
 
-## Workshow Steps
+## Workshop Steps
 1. cucumber --init
 2. สร้าง feature file ใน features/
 3. รัน feature file ด้วยคำสั่ง
