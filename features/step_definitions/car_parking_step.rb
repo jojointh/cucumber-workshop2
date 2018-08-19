@@ -34,13 +34,13 @@ class CarParkingCalculate
     end
 end   
 
-Given("Receive parking ticket at {string}") do |startTime|
+Given("I receive parking ticket at {string}") do |startTime|
     @startTime = startTime.split(':')
     @startHour =  @startTime[0]
     @startMinute = @startTime[1]
   end
   
-  When("Return parking at {string}") do |endTime|
+  When("I return parking ticket at {string}") do |endTime|
     @carParkingCalculate = CarParkingCalculate.new
     @endTime = endTime.split(':')
     @endHour =  @endTime[0]
