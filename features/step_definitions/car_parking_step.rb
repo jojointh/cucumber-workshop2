@@ -2,9 +2,14 @@ class CarParkingCalculate
 
     def calActualRate(startHour,startMinute,endHour,endMinute)
         tStart = Time.new(0,1,1,startHour,startMinute,0)
-        tEnd = Time.new(0,1,1,endHour,endMinute,0)
-        
+        if endHour < startHour then
+            tEnd = Time.new(0,1,2,endHour,endMinute,0)
+        else
+            tEnd = Time.new(0,1,1,endHour,endMinute,0)
+        end
+
         rate = ((tEnd - tStart) / 3600).ceil
+
         if rate > 7 then
             rate = 7
         end
@@ -30,7 +35,12 @@ class CarParkingCalculate
     end
 
     def calActualTime(startHour , endHour)
-        (endHour.to_i - startHour.to_i).to_s + ".%02d"
+        actualTime = (endHour.to_i - startHour.to_i)
+        if actualTime < 0 then
+            actualTime = actualTime + 24
+        end    
+
+        actualTime.to_s + ".%02d"
     end
 end   
 
