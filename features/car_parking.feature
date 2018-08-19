@@ -1,4 +1,17 @@
 Feature: calculate car parking
+
+    Scenario Outline: ตัวเลขที่หาร 3 ลงตัว
+
+        Given Receive parking ticket at <startTime>
+        When  Return parking at <exitTime>
+        Then  I should got actual time <actualTime>
+        And   parking rate <rate>
+        And   parking amount <amount>
+
+        Examples: 
+        |startTime|exitTime|actualTime|rate|amount|
+        |"9:00"        |"9:59"  |"0.59"| 1 | 25|
+
     Scenario: parking duration 1 hours
         Given Receive parking ticket at "9:00" 
         When  Return parking at "9:59"

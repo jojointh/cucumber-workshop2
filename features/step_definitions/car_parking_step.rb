@@ -14,8 +14,6 @@ class CarParkingCalculate
     
     def calActualAmount(rate)
 
-        # = rate / 24
-
         if rate <= 2 then
             25*rate
         elsif rate <=3 then
