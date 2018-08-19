@@ -1,21 +1,12 @@
 class CarParkingCalculate
 
-    def calActualRate(startHour,startMinute,endHour,endMinute)
-        tStart = Time.new(0,1,1,startHour,startMinute,0)
-        if endHour < startHour then
-            tEnd = Time.new(0,1,2,endHour,endMinute,0)
-        else
-            tEnd = Time.new(0,1,1,endHour,endMinute,0)
+    def calActualRate(actualParkingTime)
+        actualRate = actualParkingTime.to_f.ceil
+        if actualRate >= 7 then
+            actualRate = 7
         end
-
-        rate = ((tEnd - tStart) / 3600).ceil
-
-        if rate > 7 then
-            rate = 7
-        end
-
-        rate
-    end   
+        actualRate
+    end
     
     def calActualAmount(rate)
 
@@ -60,7 +51,7 @@ Given("I receive parking ticket at {string}") do |startTime|
     @actualMinute = @endMinute.to_i - @startMinute.to_i
     @actualParkingTime = @actualHour.to_s % @actualMinute
 
-    @actualRate = @carParkingCalculate.calActualRate(@startHour.to_i, @startMinute.to_i, @endHour.to_i, @endMinute.to_i)
+    @actualRate = @carParkingCalculate.calActualRate(@actualParkingTime)
     @actualAmount = @carParkingCalculate.calActualAmount @actualRate
   end
 
